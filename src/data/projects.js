@@ -70,6 +70,96 @@ export const PROJECTS = [
     color: 'bg-teal-500',
     link: 'https://github.com/Sahancoder/Face-recognition-with-ML',
     github: 'https://github.com/Sahancoder/Face-recognition-with-ML'
+  },
+  {
+    id: 'proj9',
+    title: 'Age Calculator Web',
+    category: 'HTML / CSS / JavaScript',
+    description: 'Simple and elegant age calculator web application.',
+    color: 'bg-cyan-500',
+    link: 'https://github.com/Sahancoder/Age-Calculator-Web',
+    github: 'https://github.com/Sahancoder/Age-Calculator-Web'
+  },
+  {
+    id: 'proj10',
+    title: 'Digital Clock Web',
+    category: 'HTML / CSS / JavaScript',
+    description: 'Real-time digital clock with modern UI design.',
+    color: 'bg-amber-500',
+    link: 'https://github.com/Sahancoder/Digital-Clock-Web',
+    github: 'https://github.com/Sahancoder/Digital-Clock-Web'
+  },
+  {
+    id: 'proj11',
+    title: 'Expense Tracker',
+    category: 'React / JavaScript',
+    description: 'Personal finance tracking application with expense management features.',
+    color: 'bg-emerald-500',
+    link: 'https://github.com/Sahancoder/Expense-Tracker-Web',
+    github: 'https://github.com/Sahancoder/Expense-Tracker-Web'
+  },
+  {
+    id: 'proj12',
+    title: 'FD Calculator',
+    category: 'HTML / CSS / JavaScript',
+    description: 'Fixed deposit interest calculator for financial planning.',
+    color: 'bg-lime-500',
+    link: 'https://github.com/Sahancoder/FD-Calculator-Web',
+    github: 'https://github.com/Sahancoder/FD-Calculator-Web'
+  },
+  {
+    id: 'proj13',
+    title: 'Anime Movie Website',
+    category: 'HTML / CSS / JavaScript',
+    description: 'Anime streaming and information website with modern design.',
+    color: 'bg-violet-500',
+    link: 'https://github.com/Sahancoder/Anime-Movie-Website',
+    github: 'https://github.com/Sahancoder/Anime-Movie-Website'
+  },
+  {
+    id: 'proj14',
+    title: 'Hotel Booking System',
+    category: 'Full Stack / Database',
+    description: 'Complete hotel reservation management system.',
+    color: 'bg-rose-500',
+    link: 'https://github.com/Sahancoder/hotel-booking',
+    github: 'https://github.com/Sahancoder/hotel-booking'
+  },
+  {
+    id: 'proj15',
+    title: 'Data Scraping Tool',
+    category: 'Python / Web Scraping',
+    description: 'Automated data extraction and web scraping tool.',
+    color: 'bg-fuchsia-500',
+    link: 'https://github.com/Sahancoder/DATA-SCRAPING-',
+    github: 'https://github.com/Sahancoder/DATA-SCRAPING-'
+  },
+  {
+    id: 'proj16',
+    title: 'Streamlit Docker App',
+    category: 'Python / Docker / ML',
+    description: 'Machine learning prediction web app deployed as Docker container with Streamlit.',
+    color: 'bg-sky-500',
+    link: 'https://github.com/Sahancoder/Deploy-streamlit-app-as-docker-container-Prediction-web-app',
+    github: 'https://github.com/Sahancoder/Deploy-streamlit-app-as-docker-container-Prediction-web-app'
+  },
+  {
+    id: 'proj17',
+    title: 'Flask Web Application',
+    category: 'Python / Flask',
+    description: 'Backend web application built with Flask framework.',
+    color: 'bg-slate-500',
+    link: 'https://github.com/Sahancoder/Flask-App',
+    github: 'https://github.com/Sahancoder/Flask-App'
+  },
+  {
+    id: 'proj18',
+    title: 'Expo Mobile App',
+    category: 'React Native / Expo',
+    description: 'Cross-platform mobile application built with Expo framework.',
+    color: 'bg-zinc-500',
+    link: 'https://github.com/Sahancoder/Expo-App',
+    github: 'https://github.com/Sahancoder/Expo-App'
   }
 ];
 

@@ -1,5 +1,4 @@
 export const WALLPAPERS = [
-  '/assests/Wallpapers/apple-logo-wwdc-colorful-gradient-background-5k-3840x2160-1565.jpg',
   '/assests/Wallpapers/its-glowtime-apple-3840x2160-19014.png'
 ];
 

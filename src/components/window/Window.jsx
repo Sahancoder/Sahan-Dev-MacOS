@@ -13,14 +13,24 @@ const Window = ({ windowData }) => {
   const { closeWindow, minimizeWindow, focusWindow, updateWindowPos } = useStore();
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [animationPhase, setAnimationPhase] = useState(0);
   const windowRef = useRef(null);
 
-  // Pop-up animation on mount
+  // macOS-style pop-up animation on mount
   useEffect(() => {
-    setIsAnimating(true);
-    const timer = setTimeout(() => setIsAnimating(false), 300);
-    return () => clearTimeout(timer);
+    // Phase 0: Initial state (small, transparent, slightly down)
+    setAnimationPhase(0);
+    
+    // Phase 1: Pop up with slight overshoot
+    const timer1 = setTimeout(() => setAnimationPhase(1), 10);
+    
+    // Phase 2: Settle back to normal size
+    const timer2 = setTimeout(() => setAnimationPhase(2), 250);
+    
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [windowData.id]);
 
   const handleMouseDown = (e) => {
@@ -53,6 +63,36 @@ const Window = ({ windowData }) => {
 
   if (!windowData.isOpen || windowData.isMin) return null;
 
+  // Animation transforms based on phase
+  const getAnimationStyle = () => {
+    switch(animationPhase) {
+      case 0: // Initial: small, transparent, down
+        return {
+          transform: `translate(${windowData.position.x}px, ${windowData.position.y + 20}px) scale(0.92)`,
+          opacity: 0,
+          filter: 'blur(2px)'
+        };
+      case 1: // Pop: slight overshoot
+        return {
+          transform: `translate(${windowData.position.x}px, ${windowData.position.y - 5}px) scale(1.02)`,
+          opacity: 1,
+          filter: 'blur(0px)'
+        };
+      case 2: // Settle: normal
+        return {
+          transform: `translate(${windowData.position.x}px, ${windowData.position.y}px) scale(1)`,
+          opacity: 1,
+          filter: 'blur(0px)'
+        };
+      default:
+        return {
+          transform: `translate(${windowData.position.x}px, ${windowData.position.y}px) scale(1)`,
+          opacity: 1,
+          filter: 'blur(0px)'
+        };
+    }
+  };
+
   // Component mapping
   const renderComponent = () => {
     const componentMap = {
@@ -71,13 +111,14 @@ const Window = ({ windowData }) => {
     <div
       ref={windowRef}
       style={{
-        transform: `translate(${windowData.position.x}px, ${windowData.position.y}px) ${isAnimating ? 'scale(0.8)' : 'scale(1)'}`,
+        ...getAnimationStyle(),
         width: `${windowData.size.width}px`,
         height: `${windowData.size.height}px`,
         zIndex: windowData.zIndex,
-        opacity: isAnimating ? 0 : 1,
+        transition: animationPhase === 0 ? 'none' : animationPhase === 1 ? 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        boxShadow: animationPhase === 2 ? '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' : '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
       }}
-      className="fixed rounded-xl overflow-hidden shadow-2xl border border-white/20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex flex-col transition-all duration-300 ease-out max-sm:!w-[calc(100vw-16px)] max-sm:!h-[calc(100vh-80px)] max-sm:!translate-x-2 max-sm:!translate-y-2 max-sm:left-0 max-sm:top-0"
+      className="fixed rounded-xl overflow-hidden border border-white/20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex flex-col max-sm:!w-[calc(100vw-16px)] max-sm:!h-[calc(100vh-80px)] max-sm:!translate-x-2 max-sm:!translate-y-2 max-sm:left-0 max-sm:top-0"
       onMouseDown={() => focusWindow(windowData.id)}
     >
       <div

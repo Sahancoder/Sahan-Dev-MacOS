@@ -13,7 +13,7 @@ const Dock = () => {
         
         {/* App icons */}
         <DockIcon icon="/assests/icons/Contacts.png" label="Safari" onClick={() => openWindow({ id: 'safari', title: 'Safari', component: 'Safari' })} />
-        <DockIcon icon="/assests/icons/Document.png" label="Terminal" onClick={() => openWindow({ id: 'terminal', title: 'Terminal', component: 'Terminal' })} />
+        <DockIcon icon="/assests/icons/Terminal.png" label="Terminal" onClick={() => openWindow({ id: 'terminal', title: 'Terminal', component: 'Terminal' })} />
         <DockIcon icon="/assests/icons/Messages.png" label="Gemini AI" onClick={() => openWindow({ id: 'gemini', title: 'Gemini Assistant', component: 'GeminiChat' })} />
         <DockIcon icon="/assests/icons/Photos.png" label="About Me" onClick={() => openWindow({ id: 'welcome', title: 'Welcome', component: 'Welcome' })} />
         <DockIcon icon="/assests/icons/Settings.png" label="Settings" onClick={() => openWindow({ id: 'settings', title: 'System Preferences', component: 'Settings' })} />
