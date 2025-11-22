@@ -201,10 +201,13 @@ Contributions, issues, and feature requests are welcome!
 
 ## 👨‍💻 Author
 
-**Adrian**
-- Portfolio: [Your Portfolio URL]
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: hello@developer.com
+**Sahan Viranga Hettiarachchi**
+
+- Portfolio: [sahan-hettiarachchi.vercel.app](https://sahan-hettiarachchi.vercel.app)
+- GitHub: [@Sahancoder](https://github.com/Sahancoder)
+- Email: sahanviranga18@gmail.com
+- LinkedIn: [Sahan Viranga Hettiarachchi](https://www.linkedin.com/in/sahan-viranga-hettiarachchi-219104275)
+
 
 ## 🙏 Acknowledgments
 
